@@ -20,8 +20,7 @@ public class Stack {
 	public int push(int n) {
 		if (current == max)
 			throw new OverflowStackException("스택이 가득차있습니다.");
-		current++;
-		return stk[current] = n;
+		return stk[current++] = n;
 	}
 
 	public int pop() {
@@ -73,6 +72,13 @@ public class Stack {
 		return isEmpty;
 	}
 	
+	public void dump() {
+		if(current <= 0 )
+			throw new EmptyStackException("스택이 비어있습니다");
+		for (int i : stk) {
+			System.out.println(i);
+		}
+	}
 	
 //실행시 예외: 스택이 비어 있음
 	@SuppressWarnings("serial")
